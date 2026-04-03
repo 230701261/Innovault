@@ -1,0 +1,31 @@
+name: Deploy static website to Azure Web App - Innovault
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    permissions:
+      id-token: write
+      contents: read
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Login to Azure
+        uses: azure/login@v2
+        with:
+          client-id: ${{ secrets.AZUREAPPSERVICE_CLIENTID_FF83F1F84F43491B901620EAD9795489 }}
+          tenant-id: ${{ secrets.AZUREAPPSERVICE_TENANTID_CE9D5B826910452CAB6958D398BFE5B6 }}
+          subscription-id: ${{ secrets.AZUREAPPSERVICE_SUBSCRIPTIONID_5955CCB86B6E49A298CA6AC8AD698B7C }}
+
+      - name: Deploy to Azure Web App
+        uses: azure/webapps-deploy@v3
+        with:
+          app-name: 'Innovault'
+          package: .
