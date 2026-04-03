@@ -235,3 +235,40 @@ textarea {
 .visit-btn:active {
     transform: scale(0.97);
 }
+
+/* GRID */
+.grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+}
+
+/* CARD */
+.conf-card {
+    background: white;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 3px 10px rgba(0,0,0,0.08);
+}
+
+.conf-card h3 {
+    color: #0B3A6F;
+}
+
+/* BUTTON */
+.visit-btn {
+    display: block;
+    margin-top: 10px;
+    text-align: center;
+    background: #0B3A6F;
+    color: white;
+    padding: 10px;
+    border-radius: 6px;
+    text-decoration: none;
+    transition: 0.3s;
+}
+
+.visit-btn:hover {
+    background: #2D6CDF;
+    transform: translateY(-2px);
+}
